@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+  email String @unique
+  name String
+  imageUrl String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  servers Server[]
+  members Member[]
+}
+
+model Server {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  imageUrl String
+  inviteCode String @unique
+
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [userId], onDelete: Cascade)
+
+  members Member[]
+  posts Post[]
+  images Image[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum MemberRole {
+  ADMIN
+  MODERATOR
+  GUEST
+}
+
+model Member {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  role MemberRole @default(GUEST)
+
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [userId], onDelete: Cascade)
+
+  serverId String @db.ObjectId
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  
+  posts Post[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  serverId String @db.ObjectId
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+
+  memberId String @db.ObjectId
+  member Member @relation(fields: [memberId],  references: [id], onDelete: Cascade)
+
+  images Image[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Image {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl String
+  imageName String
+
+  profileId String @db.ObjectId
+
+  serverId String @db.ObjectId
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+
+  postId String @db.ObjectId
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

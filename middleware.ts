@@ -8,7 +8,7 @@ export default authMiddleware({
   publicRoutes: ['/'],
   async afterAuth(auth, req) {
     if (auth.userId && auth.isPublicRoute) {
-      const storeSelection = new URL('/template', req.url)
+      const storeSelection = new URL('/server', req.url)
       return NextResponse.redirect(storeSelection)
     }
 

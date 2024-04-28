@@ -1,6 +1,6 @@
 const MaerketingPage = () => {
     return (  
-        <div>ma</div>
+        <div className="h-full w-full"></div>
     );
 }
  
