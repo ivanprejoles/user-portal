@@ -22,7 +22,7 @@ export const MainLogo = () => {
           "text-lg text-neutral-700 dark:text-white hidden md:flex",
           headingFont.className,
         )}>
-          PDF Gen
+          User Portal
         </p>
       </div>
     </Link>
