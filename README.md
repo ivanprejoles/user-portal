@@ -7,9 +7,9 @@ User Portal with usable and maintainable components that can be used for future 
 <br>
 ## Installation
 <br>
-Some basic Git commands are:
+Commands to run the app:
+
 ```
-git status
-git add
-git commit
+npm install
+npm run dev
 ```
