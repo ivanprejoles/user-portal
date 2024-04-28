@@ -1,7 +1,7 @@
 # User Portal
 User Portal with usable and maintainable components that can be used for future portal development
 <br>
-![Image of model type visitor from next template generator.](/assets/images/modelTypeVisit.png)
+![Image of user portal.](/assets/image/image.png)
 <br>
 <br>
 <br>
