@@ -3,9 +3,6 @@
 import 'react-dropzone-uploader/dist/styles.css';
 import Dropzone, { IDropzoneProps } from 'react-dropzone-uploader'
 
-import { useState } from 'react'
-import { initializeApp } from 'firebase/app'
-import { getStorage, ref, uploadBytes, deleteObject } from 'firebase/storage'
 
 import { X } from "lucide-react"
 import Image from "next/image" 

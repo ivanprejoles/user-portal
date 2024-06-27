@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC7m_daHSu1lK-X9HqpIuq7k60eZdpfXrc",
+    apiKey: process.env.FIREBASE_URL,
     authDomain: "emp-portal-b03eb.firebaseapp.com",
     projectId: "emp-portal-b03eb",
     storageBucket: "emp-portal-b03eb.appspot.com",

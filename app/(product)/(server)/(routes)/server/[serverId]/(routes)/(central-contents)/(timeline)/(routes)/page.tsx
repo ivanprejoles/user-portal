@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Post from "../_components/post";
 import ContentArranger from "../../_components/content-arranger";
@@ -12,6 +12,31 @@ import {
 const TimelinePage = () => {
     const data = new Array(10).fill(0)
 
+    const [isFetching, setIsFetching] = useState(false)
+    
+    // [{}, {}, {}]
+    const [posts, setPosts] = useState<any[]>([...data])
+    
+    // [0, 1, 1, 0]
+    const [binaryPost] = useState<any[]>([])
+
+    
+    useEffect(() => {
+
+    }, [binaryPost])
+
+    const newdata =[
+        {
+            data: {
+
+            },
+            height:'',
+        }, 
+        {
+
+        }
+    ]
+    
     return (
         <>
             {/* title here */}
