@@ -1,15 +1,15 @@
 # User Portal
 User Portal with usable and maintainable components that can be used for future portal development
 <br>
-![Image of model type visitor from next template generator.](/assets/images/modelTypeVisit.png)
+![Image of user portal.](/assets/image/image.png)
 <br>
 <br>
 <br>
 ## Installation
 <br>
-Some basic Git commands are:
+Commands to run the app:
+
 ```
-git status
-git add
-git commit
+npm install
+npm run dev
 ```
